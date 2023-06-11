@@ -1,0 +1,11 @@
+steps:
+  # Docker build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'europe-west6-docker.pkg.dev/roee-cohen-sandbox/test-artifact-reg/front-app:${SHORT_SHA}', '.']
+  # Docker push to Artifact registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'europe-west6-docker.pkg.dev/roee-cohen-sandbox/test-artifact-reg/front-app:${SHORT_SHA}']
+
+# Store images in Artifact registry
+images:
+  - europe-west6-docker.pkg.dev/roee-cohen-sandbox/test-artifact-reg/front-app:${SHORT_SHA}
