@@ -5,7 +5,7 @@ const App = () => {
   const [tutorials, setTutorials] = useState([])
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get('https://backend-app-shqy3cye6a-oa.a.run.app/api/tutorials')
+      const res = await axios.get('http://34.36.10.172/api/tutorials')
       setTutorials(res.data.map(x => x.title))
     }
     fetchData()
